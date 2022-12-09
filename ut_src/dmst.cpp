@@ -39,17 +39,3 @@ lli dmst(int n, vector<Edge> E, int r) {
     }
     return ans;
 }
-
-// Example of use
-int main() {
-    int T; scanf("%d", &T);
-    FORU(t, 1, T + 1) {
-        int n, m; scanf("%d%d", &n, &m);
-        vector<Edge> E(m);
-        FOR(i, m) scanf("%d%d%lld", &E[i].u, &E[i].v, &E[i].w);
-        lli ans = dmst(n, E, 0);
-        printf("Case #%lld: ", t);
-        if (ans == -1) puts("Possums!");
-        else printf("%lld\n", ans);
-    } 
-}

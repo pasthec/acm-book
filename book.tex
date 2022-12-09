@@ -5,7 +5,7 @@
 \usepackage{DejaVuSansMono}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{amsmath,amssymb,listings,array,fancyhdr,lastpage}
-\usepackage[landscape,pdftex,top=1.5cm,bottom=0.5cm,left=0.475cm,right=0.475cm]{geometry}
+\usepackage[landscape,pdftex,top=1.5cm,bottom=0.1cm,left=0.475cm,right=0.475cm]{geometry}
 \usepackage{tabularx}
 \usepackage{xtab}
 \usepackage{multirow}
@@ -31,8 +31,8 @@
 \setlength{\footskip}{0cm}
 
 \pagestyle{fancy}
-\lhead{\'Ecole Normale Sup\'erieure ULM}
-\chead{\textit{\small{}ENS Ulm 1}}
+\chead{\'Ecole Normale Sup\'erieure ULM}
+\lhead{\textit{\small{}ENS Ulm 3}}
 \rhead{\thepage{} of~\pageref{LastPage}}
 \lfoot{}
 \cfoot{}
@@ -58,9 +58,6 @@ Graphs: page \pageref{graphs} \\
 Trees: page \pageref{trees} \\
 Misc: page \pageref{misc} \\
 Math formulas: page \pageref{mathformulas}
-
-\noindent
-Notation: \verb#v[i:j]# = \verb#[v[i], v[i+1], ..., v[j-1]]# (like Python)
 
 \algosection{Pre-contest}
 \label{precontest}
@@ -310,6 +307,9 @@ $(\star)$ — $n$ is not the size of input\quad $(\star \star)$ — without $O(n
 \algorithm{2-SAT - $O(n)$}
 \lstinputlisting{ut_src/2sat.cpp}
 
+\algorithm{Ternary search - $O(\log(b-a))$}
+\lstinputlisting{ut_src/ternary_search.cpp}
+
 \algosection{Math formulas}
 \label{mathformulas}
 
@@ -349,6 +349,8 @@ $\int_{-1}^1 f(x) \, dx \approx f(-\frac{1}{\sqrt{3}}) + f(\frac{1}{\sqrt{3}})$ 
 $\frac{1}{135} \max_\xi |f^{(4)}(\xi)|$
 \end{tabular}
 
+\noindent Total accumulated error: $O(h^4)$
+
 \subsubsection*{Runge-Kutta method to approximate $y'=f(x,y)$ with step $h$}
 $\begin{aligned}
 y_{n+1} &= y_n + \tfrac{h}{6}\left(k_1 + 2k_2 + 2k_3 + k_4 \right),\\
@@ -363,7 +365,6 @@ t_{n+1} &= t_n + h \\
 \end{aligned}
 $
 
-\noindent Total accumulated error: $O(h^4)$
 
 \subsubsection*{Triangle geometry / Pick theorem}
 
@@ -385,6 +386,7 @@ Number of divisors of $n$: $d(n) = O(n^{1/3})$ (in practice) \\ % http://codefor
 Number of partitions of $n$ elements: $p(n) \sim \frac{1}{4 n \sqrt{3}} \exp(\pi \sqrt{\frac{2n}{3}})$ \\ % from wikipedia
 $n! \sim \sqrt{2 \pi n} n^n e^{-n}$ \\ % Stirling's approximation
 $\binom{2n}{n} \sim \frac{4^n}{\sqrt{\pi n}}$
+
 
 % What follows is adapted from https://github.com/niklasb/tcr/blob/master/tcr.pdf
 
@@ -506,7 +508,6 @@ Then $\frac{p_k}{q_k} = \frac{p_{k-1} + p_{k+1}}{q_{k-1} + q_{k+1}}$ \\
 and $p_{k+1} = \left\lfloor \frac{n+q_{k-1}}{q_k} \right\rfloor p_k - p_{k-1}$ and  $q_{k+1} = \left\lfloor \frac{n+q_{k-1}}{q_k} \right\rfloor q_k - q_{k-1}$ \\
 and $\frac{p_{k+1}}{q_{k+1}} - \frac{p_k}{q_k} = \frac{1}{q_k q_{k+1}}$
 
-
 \subsubsection*{Game Theory}
 
 Sprague-Grundy theorem hypothesis: the game is impartial, each player have the same set of moves, a player that can't move loses.
@@ -600,9 +601,7 @@ You have a number $n$. One can divide it at each turn. &
 $SG_n=$ number of prime factors of $n$
 \\ \hline
 
-
 \end{xtabular}
-
 
 {\bf Burnside's Lemma:} $L=\frac{1}{|G|}\sum_{k=1}^n|Z_k|=\frac{1}{|G|}\sum_{a_i \in G}C_1(a_i)$. $Z_k:$ the set of permutations in $G$ under which $k$ stays stable; $C_1(a_i):$ the number of cycles of order $1$ in $a_i$. \quad {\bf P\'olya's Theorem:} The number of colorings of $n$ objects with $m$ colors $L=\frac{1}{|\overline{G}|}\sum_{g_i \in \overline{G}}{m^{c(g_i)}}$. $\overline{G}:$ the group over $n$ objects; $c(g_i):$the number of cycles in $g_i$.
 

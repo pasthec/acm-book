@@ -1,3 +1,2 @@
-alias w='setxkbmap -option "" -option ctrl:nocaps us dvorak'
 alias p='setxkbmap -option "" us'
 alias b='setxkbmap -option "" fr'
